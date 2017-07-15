@@ -1,0 +1,7 @@
+<details>
+  <summary>view recent searches</summary>
+  <a *ngFor="let search of recentSearches">
+      <p (click)="onClick($event)">{{search}}</p>
+  </a>
+  <span (click)="clearRecentSearches()">Clear</span>
+</details>

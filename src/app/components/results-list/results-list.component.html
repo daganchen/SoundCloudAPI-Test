@@ -1,0 +1,8 @@
+<a *ngFor="let song of songs | paginate: { itemsPerPage: 6, currentPage: p }" (click)="selectedChange.next(song)" class="song-container col-xs-12">
+  <div class="article-header">
+    <p>
+      {{song.name}}
+    </p>
+  </div>
+</a>
+<pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>

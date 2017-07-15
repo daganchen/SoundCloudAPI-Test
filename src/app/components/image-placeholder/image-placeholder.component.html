@@ -1,0 +1,4 @@
+<section *ngIf="song" class="image-container" (click)="handleImageClick()">
+ <img src="{{song.imageUrl}}" alt="{{song.name}}">
+<app-song *ngIf="toggleIframe" [currentSong] ="song"></app-song>
+</section>
