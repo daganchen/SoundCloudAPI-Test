@@ -17,7 +17,9 @@ export class SearchService {
   constructor(private http: Http, private localStorageService: LocalStorageService) { 
     
   }
-
+  /**
+   * Search for keyword results in url, save keyword to localstorge.
+   */
   search(keyword): Observable<Song[]> {
     this.localStorageService.addKeyword(keyword);
     let url = this.generateSearchUrl(keyword);
