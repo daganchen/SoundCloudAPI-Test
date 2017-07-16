@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <label><input #searchQuery type="text" (keydown.enter)="search(searchQuery.value)" /></label>
     <button (click)="search(searchQuery.value)">Search!</button>
-    <app-recent-searches (buttonClicked)="search($event)"></app-recent-searches>
+    <app-recent-searches *ngIf="isSearchHistroyExists" (buttonClicked)="search($event)"></app-recent-searches>
   </div>  
 </div>
 <app-results [songs]="songs"></app-results>

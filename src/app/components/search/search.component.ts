@@ -1,4 +1,5 @@
-import { Component, Output } from '@angular/core';
+import { LocalStorageService } from './../../services/local-storage.service';
+import { Component, Output, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { Song } from '../../interfaces/Song';
 import { Observable } from 'rxjs/Rx';
@@ -10,14 +11,15 @@ import 'rxjs/Rx';
   styleUrls: ['./search.component.scss']
 })
 
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
   songs: any[];
-  
-  constructor(private searchService: SearchService) { }
+  isSearchHistroyExists: boolean;
 
-  callSearch(value){ // I want to call this function
-    console.log(value);
+  constructor(private searchService: SearchService,private localStorageService: LocalStorageService) { }
+
+  ngOnInit() {
+   this.isSearchHistroyExists = this.localStorageService.isItemExists("recentSearches");
   }
   search(keyword) {
     this.searchService.search(keyword).subscribe(value => this.songs = value);

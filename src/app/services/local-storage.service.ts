@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LocalStorageService {
+
   private recentSearches: Array<string> = [];
   private MAX_ARRAY_SIZE: number = 5;
   private KEY: string = "recentSearches";
+
   constructor() {
 
   }
@@ -18,6 +20,9 @@ export class LocalStorageService {
       localStorage.setItem(this.KEY, JSON.stringify(this.recentSearches));
     }
   }
+  /**
+   * returns existing localstorage item, check to see if null, return array;
+   */
   getRecentSearches(): Array<any> {
     if (JSON.parse(localStorage.getItem(this.KEY)) == null)
       return [];
@@ -26,5 +31,11 @@ export class LocalStorageService {
 
   clear(): void {
     localStorage.removeItem(this.KEY);
+  }
+
+  isItemExists(value) {
+    if (localStorage.getItem(value))
+      return true;
+    return false;
   }
 }
