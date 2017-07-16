@@ -6,7 +6,7 @@ import { Component, OnInit, OnChanges, HostListener, Output, EventEmitter } from
   templateUrl: './recent-searches.component.html',
   styleUrls: ['./recent-searches.component.scss']
 })
-export class RecentSearchesComponent implements OnInit {
+export class RecentSearchesComponent implements OnInit, OnChanges {
   recentSearches: Array<any> = [];
   searchValue: string;
   @Output() buttonClicked = new EventEmitter();
@@ -23,5 +23,10 @@ export class RecentSearchesComponent implements OnInit {
   onClick($event) {
     this.buttonClicked.emit($event.currentTarget.innerHTML);
   }
+
+  ngOnChanges(){
+    alert("change");
+  }
+
 
 }

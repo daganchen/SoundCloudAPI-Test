@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-xs-12">
-    <label><input #searchQuery type="text" (keydown.enter)="search(searchQuery.value)" /></label>
-    <button (click)="search(searchQuery.value)">Search!</button>
+    <div class="detect-changes">
+      <label><input #searchQuery type="text" (keydown.enter)="search(searchQuery.value)" /></label>
+      <button (click)="search(searchQuery.value)">Search!</button>
+    </div>
     <app-recent-searches *ngIf="isSearchHistroyExists" (buttonClicked)="search($event)"></app-recent-searches>
-  </div>  
+  </div>
 </div>
 <app-results [songs]="songs"></app-results>

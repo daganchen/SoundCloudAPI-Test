@@ -1,6 +1,13 @@
 # SoundCloudAPI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+NOTES: followed exam requests, flow works!.
+Knowen bugs: 
+1) your given client id is not working, used ID found on github.
+2) recent searches is not bind currectly to search, changes occur only after refresh. (time issues is way bug is not fixed).
+
+Thank you.
+
 
 ## Development server
 
